@@ -3,6 +3,7 @@
   "displayName": "RDump: Dump Folder",
   "description": "Right-click a folder to run an rdump search and save output named after the folder.",
   "version": "0.0.1",
+  "icon": "logo.png",
   "publisher": "amichevole",
   "license": "MIT",
   "engines": {
