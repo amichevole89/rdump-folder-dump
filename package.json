@@ -1,0 +1,99 @@
+{
+  "name": "rdump-folder-dump",
+  "displayName": "RDump: Dump Folder",
+  "description": "Right-click a folder to run an rdump search and save output named after the folder.",
+  "version": "0.0.1",
+  "publisher": "amichevole",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": "git@github.com:amichevole89/rdump-folder-dump.git",
+  "author": "amichevole89 <postino.amichevole@gmail.com>",
+  "activationEvents": [
+    "onCommand:rdump.dumpFolder"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rdump.dumpFolder",
+        "title": "RDump: Dump This Folder",
+        "category": "RDump"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "rdump.dumpFolder",
+          "group": "navigation@10"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "rdump.dumpFolder"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "RDump Folder Dump",
+      "properties": {
+        "rdump.commandPath": {
+          "type": "string",
+          "default": "rdump",
+          "description": "Path to the rdump executable (or leave as 'rdump' if it's in PATH)."
+        },
+        "rdump.searchQuery": {
+          "type": "string",
+          "default": "in:{selectedPathForQuery}/** & (ext:ts | ext:tsx)",
+          "markdownDescription": "RDump query template. Tokens available: {folderPath}, {folderPathQuoted}, {folderRelativePath}, {folderRelativePathQuoted}, {selectedPathForQuery}, {folderBasename}."
+        },
+        "rdump.outputNamePattern": {
+          "type": "string",
+          "default": "dump-{folderBasename}.txt",
+          "markdownDescription": "Filename pattern for output. Tokens: {folderBasename}, {workspaceName}, {timestamp} (YYYYMMDD-HHmmss)."
+        },
+        "rdump.outputLocation": {
+          "type": "string",
+          "enum": [
+            "selectedFolder",
+            "workspaceRoot",
+            "temp"
+          ],
+          "default": "selectedFolder",
+          "description": "Where to write the output file."
+        },
+        "rdump.format": {
+          "type": "string",
+          "enum": [
+            "markdown",
+            "json",
+            "text"
+          ],
+          "default": "markdown",
+          "description": "RDump output format."
+        },
+        "rdump.openAfterCreate": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open the generated file after creation."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.5.4"
+  }
+}
