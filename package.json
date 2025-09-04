@@ -2,7 +2,7 @@
   "name": "rdump-folder-dump",
   "displayName": "RDump: Dump Folder",
   "description": "Right-click a folder to run an rdump search and save output named after the folder.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "icon": "logo.png",
   "publisher": "amichevole",
   "license": "MIT",
@@ -12,7 +12,7 @@
   "categories": [
     "Other"
   ],
-  "repository": "git@github.com:amichevole89/rdump-folder-dump.git",
+  "repository": "https://github.com/amichevole89/rdump-folder-dump",
   "author": "amichevole89 <postino.amichevole@gmail.com>",
   "activationEvents": [
     "onCommand:rdump.dumpFolder"
