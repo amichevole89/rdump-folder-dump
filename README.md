@@ -6,7 +6,7 @@ Right-click any folder in the Explorer and choose **RDump: Dump This Folder**.
 The extension runs:
 
 ```
-rdump search in:{folder}/** & (ext:ts | ext:tsx)
+rdump search (in:{selectedPathForQuery} | in:{selectedPathForQuery}/**) & (ext:ts | ext:tsx)
 ```
 
 and writes the results to a file in that folder (by default named `dump-{folder}.txt`).

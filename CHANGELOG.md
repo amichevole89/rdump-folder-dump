@@ -11,3 +11,7 @@
 ## 0.0.3
 
 - Update README.md
+
+## 0.0.4
+
+- Update default searchQuery to include all files inside Rdumped folder as well as sub-directories of Rdumped folder

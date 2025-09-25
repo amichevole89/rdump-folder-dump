@@ -113,7 +113,7 @@ export function activate(context: vscode.ExtensionContext) {
         const commandPath = config.get<string>("rdump.commandPath", "rdump");
         const searchQueryTpl = config.get<string>(
           "rdump.searchQuery",
-          "in:{selectedPathForQuery}/** & (ext:ts | ext:tsx)"
+          "(in:{selectedPathForQuery} | in:{selectedPathForQuery}/**) & (ext:ts | ext:tsx)"
         );
         const outputPattern = config.get<string>(
           "rdump.outputNamePattern",

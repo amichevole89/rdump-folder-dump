@@ -2,7 +2,7 @@
   "name": "rdump-folder-dump",
   "displayName": "RDump: Dump Folder",
   "description": "Right-click a folder to run an rdump search and save output named after the folder.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "icon": "logo.png",
   "publisher": "amichevole",
   "license": "MIT",
@@ -50,7 +50,7 @@
         },
         "rdump.searchQuery": {
           "type": "string",
-          "default": "in:{selectedPathForQuery}/** & (ext:ts | ext:tsx)",
+          "default": "(in:{selectedPathForQuery} | in:{selectedPathForQuery}/**) & (ext:ts | ext:tsx)",
           "markdownDescription": "RDump query template. Tokens available: {folderPath}, {folderPathQuoted}, {folderRelativePath}, {folderRelativePathQuoted}, {selectedPathForQuery}, {folderBasename}."
         },
         "rdump.outputNamePattern": {
